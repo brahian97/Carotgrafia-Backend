@@ -58,7 +58,7 @@ public class LugarLogica implements ILugarLogica {
 	
 	@Override
 	@Transactional(readOnly=false,propagation=Propagation.REQUIRED,rollbackFor=Exception.class)
-	public void save(Lugar lugar) throws Exception{
+	public String save(Lugar lugar) throws Exception{
 		if(lugar==null){
 			throw new Exception("el lugar no puede ser nulo");
 		}
@@ -71,11 +71,13 @@ public class LugarLogica implements ILugarLogica {
 		}
 
 		LugarDAO.save(lugar);
+		
+		return "Lugar guardado exitosamente";
 	}
 
 	@Override
 	@Transactional(readOnly=false,propagation=Propagation.REQUIRED,rollbackFor=Exception.class)
-	public void update(Lugar lugar) throws Exception {
+	public String update(Lugar lugar) throws Exception {
 		if(lugar==null){
 			throw new Exception("el lugar no puede ser nulo");
 		}
@@ -88,6 +90,8 @@ public class LugarLogica implements ILugarLogica {
 		}
 		
 		LugarDAO.update(lugar);		
+		
+		return "Modificación exitoso";
 	}
 
 	@Override

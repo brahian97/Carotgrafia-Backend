@@ -67,6 +67,11 @@ public class CapaLogica implements ICapaLogica {
 						
 		capaDAO.save(capa);
 	}
+	
+	public String saveCapaRest(Capa capa) throws Exception{
+		save(capa);
+		return "La capa se ha guardado exitosamente";
+	}
 
 	@Override
 	@Transactional(readOnly=false,propagation=Propagation.REQUIRED,rollbackFor=Exception.class)
