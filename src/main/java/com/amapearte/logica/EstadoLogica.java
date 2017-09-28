@@ -3,33 +3,23 @@ package com.amapearte.logica;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.amapearte.dao.EstadoDAO;
-import com.amapearte.dao.IPaisDAO;
 import com.amapearte.dao.RutaDAO;
-import com.amapearte.modelo.Artista;
-import com.amapearte.modelo.Estado;
 import com.amapearte.modelo.Estado;
 
-import com.amapearte.modelo.Ruta;
 
 @Service
 @Scope("singleton")
 public class EstadoLogica implements IEstadoLogica {
-	
-	@PersistenceContext
-	private EntityManager entityManager;
 
 	@Autowired
 	private Validator validator;
@@ -37,8 +27,6 @@ public class EstadoLogica implements IEstadoLogica {
 	@Autowired
 	private EstadoDAO estadoDAO;
 	
-	@Autowired
-	private RutaDAO rutaDAO;
 	
 	
 	public void validarEstado(Estado estado) throws Exception {
